@@ -23,7 +23,7 @@ urlSlug('Sir James Paul McCartney MBE is an English singer-songwriter')
 
 ## Documentation
 
-### urlSlug(string[, options]), convert(string[, options])
+### urlSlug(string[, options]) same as urlSlug.convert(string[, options])
 
 Returns `string` value converted to a slug.
 
@@ -67,6 +67,12 @@ urlSlug.convert('Schwarzweiß', {
 })
 // schwarz-weiss
 ```
+
+### urlSlug.volpy(string)
+
+Returns `string` value converted to a slug with specific options:
+- camelCase is false
+- '+' as 'plus'
 
 ### revert(slug[, options])
 
