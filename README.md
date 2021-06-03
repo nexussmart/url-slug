@@ -9,7 +9,7 @@
 ## Install
 
 ```bash
-$ npm install url-slug
+$ npm install git+https://github.com/nexussmart/url-slug.git
 ```
 
 ## Usage
@@ -73,6 +73,15 @@ urlSlug.convert('Schwarzweiß', {
 Returns `string` value converted to a slug with specific options:
 - camelCase is false
 - '+' as 'plus'
+
+#### Example
+
+```javascript
+import urlSlug from 'url-slug'
+
+urlSlug.volpy(" Galaxy A5 + (2018) ")
+// galaxy-a5-plus-2018
+```
 
 ### revert(slug[, options])
 
