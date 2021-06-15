@@ -1,6 +1,8 @@
 export const VOLPY_OPTIONS = {
   camelCase: false,
   dictionary: {
-    '+': '-plus-'
+    '+': '-plus-',
+    'OnePlus': 'oneplus',
+    'BlackBerry': 'blackberry'
   }
 }
