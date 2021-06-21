@@ -73,6 +73,8 @@ urlSlug.convert('Schwarzweiß', {
 Returns `string` value converted to a slug with specific options:
 - camelCase is false
 - '+' as 'plus'
+- 'OnePlus' as 'oneplus'
+- 'BlackBerry' as 'blackberry'
 
 #### Example
 
