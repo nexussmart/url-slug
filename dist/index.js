@@ -202,10 +202,14 @@
     camelCase: false,
     dictionary: {
       '+': '-plus-',
-      OnePlus: 'oneplus',
-      BlackBerry: 'blackberry'
+      'OnePlus': 'oneplus',
+      'BlackBerry': 'blackberry'
     }
   };
+
+  function volpy (string) {
+    return convert(string, VOLPY_OPTIONS)
+  }
 
   const urlSlug = function (string, options) {
     return convert(string, options)
@@ -214,10 +218,6 @@
   for (const transformer in transformers) {
     urlSlug[transformer] = transformers[transformer];
   }
-
-  const volpy = function (string) {
-    return convert(string, VOLPY_OPTIONS)
-  };
 
   urlSlug.convert = convert;
   urlSlug.revert = revert;

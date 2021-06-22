@@ -33,6 +33,12 @@ export declare function convert(string: string, options?: Options): string
 export declare function revert(slug: string, options?: RevertOptions): string
 
 /**
+ * Converts a string into a slug with Volpy custom options
+ */
+
+export declare function volpy(slug: string): string
+
+/**
  * Sets convert() as the default export
  */
 

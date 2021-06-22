@@ -1,8 +1,6 @@
-export const VOLPY_OPTIONS = {
-  camelCase: false,
-  dictionary: {
-    '+': '-plus-',
-    'OnePlus': 'oneplus',
-    'BlackBerry': 'blackberry'
-  }
+import convert from './convert';
+import { VOLPY_OPTIONS } from './volpy-options';
+
+export default function (string) {
+  return convert(string, VOLPY_OPTIONS)
 }
