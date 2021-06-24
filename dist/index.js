@@ -198,13 +198,152 @@
     return transformer ? transformer(fragments, ' ') : fragments.join(' ')
   }
 
+  const MARKETING_DICTIONNARY = [
+    'OnePlus',
+    'BlackBerry'
+  ];
+
+  /*
+  Acer,
+  Alcatel,
+  Allview,
+  Amazon,
+  Amoi,
+  Apple,
+  Archos,
+  Asus,
+  AT&T,
+  Benefon,
+  BenQ,
+  BenQ-Siemens,
+  Bird,
+  BlackBerry,
+  BLU,
+  Bosch,
+  BQ,
+  Casio,
+  Cat,
+  Celkon,
+  Chea,
+  Coolpad,
+  Dell,
+  Emporia,
+  Energizer,
+  Ericsson,
+  Eten,
+  FujitsuSiemens,
+  Garmin-Asus,
+  Gigabyte,
+  Gionee,
+  Google,
+  Haier,
+  HP,
+  HTC,
+  Huawei,
+  i-mate,
+  i-mobile,
+  Icemobile,
+  Innostream,
+  iNQ,
+  Intex,
+  Jolla,
+  Karbonn,
+  Kyocera,
+  Lava,
+  LeEco,
+  Lenovo,
+  LG,
+  Maxon,
+  Maxwest,
+  Meizu,
+  Micromax,
+  Microsoft,
+  Mitac,
+  Mitsubishi,
+  Modu,
+  Motorola,
+  MWg,
+  NEC,
+  Neonode,
+  NIU,
+  Nokia,
+  Nvidia,
+  O2,
+  OnePlus,
+  Oppo,
+  Orange,
+  Palm,
+  Panasonic,
+  Pantech,
+  Parla,
+  Philips,
+  Plum,
+  Posh,
+  Prestigio,
+  QMobile,
+  Qtek,
+  Sagem,
+  Samsung,
+  Sendo,
+  Sewon,
+  Sharp,
+  Siemens,
+  Sonim,
+  Sony,
+  SonyEricsson,
+  Spice,
+  T-Mobile,
+  Tel.Me.,
+  Telit,
+  Thuraya,
+  Toshiba,
+  Unnecto,
+  Vertu,
+  verykool,
+  vivo,
+  VKMobile,
+  Vodafone,
+  Wiko,
+  WND,
+  XCute,
+  Xiaomi,
+  XOLO,
+  Yezz,
+  Yota,
+  YU,
+  ZTE
+  */
+
+  function dictionaryCheck(fragment, separator){
+
+    let regExp, value;
+
+    for (let entryIndex = 0; entryIndex < MARKETING_DICTIONNARY.length; entryIndex++) {
+      value = MARKETING_DICTIONNARY[entryIndex].toLowerCase();
+      regExp = new RegExp(value, 'gi');
+      fragment = fragment.replace(regExp, separator + value + separator);
+    }
+
+    return fragment.split(separator).filter(Boolean).join(separator);
+  }
+
+  const MARKETING_TRANSFORMER = function marketingConverter(fragments, separator) {
+
+    const buffer = [];
+
+    for (let index = 0; index < fragments.length; index++) {
+      buffer.push( dictionaryCheck(fragments[index].toLowerCase(), separator ) );
+    }
+
+    return buffer.join(separator);
+  };
+
   const VOLPY_OPTIONS = {
     camelCase: false,
     dictionary: {
-      '+': '-plus-',
-      'OnePlus': 'oneplus',
-      'BlackBerry': 'blackberry'
-    }
+      '+': '-plus-'
+    },
+    transformer: MARKETING_TRANSFORMER
   };
 
   function volpy (string) {
