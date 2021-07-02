@@ -4,7 +4,7 @@
   "description": "Slug generator with less than 1 KB and no dependencies, RFC 3986 compliant.",
   "main": "dist/index.js",
   "module": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup --config",
     "prepare": "npm run build",
